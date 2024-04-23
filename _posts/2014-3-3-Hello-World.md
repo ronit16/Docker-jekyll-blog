@@ -99,3 +99,38 @@ Building the Backend Image:
 ```
 docker build -t backend_image_21bcp321  -f .\backend\DOCKERFILE .\backend\
 ```
+
+### step 6: MySQL docker  container
+
+Creating a mysql docker container using prebuild ed image `mysql/mysql-server` with the command :
+
+```
+docker run -d --name net_mysql_db --network Docker_Assignment -p 3306:3306 -e MYSQL_ROOT_PASSWORD=<your_password> mysql:8.0
+```
+
+Creating a database and tables inside the mysql container 
+
+```
+ docker exec -it mysql_db mysql -u root -p
+ ```
+ Then you will be asked for password which is  `your_password`. 
+ After that enter the following SQL queries in order to create a new Database.
+
+ ```
+create database student_db;
+
+show databases;
+
+use student_db;
+
+CREATE TABLE students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  rollNo VARCHAR(20) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  department VARCHAR(50) NOT NULL,
+  semester INT NOT NULL,
+  college VARCHAR(100) NOT NULL
+);
+
+desc students;
+```
