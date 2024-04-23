@@ -134,3 +134,32 @@ CREATE TABLE students (
 
 desc students;
 ```
+```
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
+```
+## Part 3:  Running the application 
+### step 7: Building the containers 
+To build all three containers use this command:
+
+1. Frontend  React app:
+```
+docker run -d --name net_frontend --network Docker_Assignment -p 3000:3000 frontend_image_21bcp321
+```
+
+2. Backend NodeJS Express server :
+```
+docker run -d --name net_backend --network Docker_Assignment -p 5000:5000 backend_image_21bcp321
+```
+3. MySQL Server:
+```
+docker run -d --name net_mysql_db --network Docker_Assignment -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql:8.0
+```
+
+### Step 8: Open in Browser
+Open http://localhost:3000 to see the Reacjs App and http://localhost:5000/students to see the API response from the express server.
+
+To Check if the Application is running or not we can check that the data is comming to mysql or not by running the query in mysql container 
+
+```
+Select * from students;
+```
