@@ -81,43 +81,21 @@ EXPOSE 5000
 # Command to run the application
 CMD ["node", "server.js"]
 ```
+Explanation of each line:
 
-### Step 5: MySQL Docker Image
+- The first four lines are identical to the frontend Dockerfile, so I won't  explain them again here.
+- `CMD ["node", "server.js"]`: This specifies that we want to start our server using the `server.js`  file in our project root.
 
-Initially Created a network so that all  containers can communicate with each other, then created a separate container for the database using the official MySQL docker To interact with databases, you can use an existing To store data, we need a database server.
+### step 5: Building the images
 
+You can now build both images using the following commands
+
+Building the Frontend Image:
 ```
-docker network  create mynetwork
-```
-
-Now, let's go ahead and create the Docker images for both frontend and backend applications
-Building Frontend Image:
-
-bash
-``` 
-$ docker build --tag=frontend:latest --build-arg HTTP_PROXY=$http _proxy --build-arg NO_PROXY 
+docker build -t frontend_image_21bcp321 -f .\frontend\DOCKERFILE .\frontend\
 ```
 
-
-Pull the official MySQL Docker image from the Docker Hub and configure it with environment variables.
-
-## Part 3: Docker Compose Configuration
-### Step 6: Docker Compose Setup
-Use Docker Compose to define and run multi-container Docker applications. Write a docker-compose.yml file to specify the services, networks, and volumes for your application.
-
-## Part 4: Building and Running the Application
-### Step 7: Building Docker Images
-Build Docker images for the frontend, backend, and MySQL using the docker build command.
-
-### Step 8: Running Docker Containers
-Run Docker containers using Docker Compose to start the application.
-
-## Part 5: Testing the Application
-### Step 9: Accessing the Application
-Access the application in a web browser to verify that everything is working correctly.
-
-### Conclusion
-In this tutorial, we've explored how to set up a multi-container application using Docker. By leveraging Docker's containerization technology, we can easily manage complex applications with multiple components. Docker Compose simplifies the process of orchestrating these containers, making it easier to develop, deploy, and scale applications. With these tools, you can build robust and scalable applications that are easy to maintain and deploy.
-
-### About the Author
-Ronit Shah (21BCP321) is a Developer with expertise in AI/ML. Connect with Ronit on [LinkedIn/Twitter/GitHub/etc.] for more articles and tutorials on software development.
+Building the Backend Image:
+```
+docker build -t backend_image_21bcp321  -f .\backend\DOCKERFILE .\backend\
+```
