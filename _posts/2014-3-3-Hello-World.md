@@ -90,6 +90,14 @@ Initially Created a network so that all  containers can communicate with each ot
 docker network  create mynetwork
 ```
 
+Now, let's go ahead and create the Docker images for both frontend and backend applications
+Building Frontend Image:
+
+bash
+``` 
+$ docker build --tag=frontend:latest --build-arg HTTP_PROXY=$http _proxy --build-arg NO_PROXY 
+```
+
 
 Pull the official MySQL Docker image from the Docker Hub and configure it with environment variables.
 
