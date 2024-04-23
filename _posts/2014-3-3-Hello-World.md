@@ -158,6 +158,8 @@ docker run -d --name net_mysql_db --network Docker_Assignment -p 3306:3306 -e MY
 ### Step 8: Open in Browser
 Open http://localhost:3000 to see the Reacjs App and http://localhost:5000/students to see the API response from the express server.
 
+![frontend](image/SS1)
+
 To Check if the Application is running or not we can check that the data is comming to mysql or not by running the query in mysql container 
 
 ```
