@@ -137,6 +137,8 @@ desc students;
 ```
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
 ```
+![Containers]({{ site.baseurl }}/images/SS2.png)
+
 ## Part 3:  Running the application 
 ### step 7: Building the containers 
 To build all three containers use this command:
@@ -160,8 +162,11 @@ Open http://localhost:3000 to see the Reacjs App and http://localhost:5000/stude
 
 ![frontend]({{ site.baseurl }}/images/SS1.png)
 
+![frontend]({{ site.baseurl }}/images/SS3.png)
+
 To Check if the Application is running or not we can check that the data is comming to mysql or not by running the query in mysql container 
 
 ```
 Select * from students;
 ```
+![frontend]({{ site.baseurl }}/images/SS4.png)
