@@ -61,9 +61,36 @@ Explanation of each line:
 - **CMD**: Specifies the command to run when the container starts.
 
 ### Step 4: Backend Dockerfile
-Create a similar Dockerfile for the backend application (assuming it's built with Node.js).
+Create a similar Dockerfile for the backend application.
+```Dockerfile
+# Use official Node.js image as the base image
+FROM node:14-alpine
+
+# Copy package.json and package-lock.json files to the working directory
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy all files to the working directory
+COPY . .
+
+# Expose port 5000 to the outside world
+EXPOSE 5000
+
+# Command to run the application
+CMD ["node", "server.js"]
+```
 
 ### Step 5: MySQL Docker Image
+
+Initially Created a network so that all  containers can communicate with each other, then created a separate container for the database using the official MySQL docker To interact with databases, you can use an existing To store data, we need a database server.
+
+```
+docker network  create mynetwork
+```
+
+
 Pull the official MySQL Docker image from the Docker Hub and configure it with environment variables.
 
 ## Part 3: Docker Compose Configuration
