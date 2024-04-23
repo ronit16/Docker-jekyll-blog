@@ -50,3 +50,39 @@ EXPOSE 3000
 # Command to run the application
 CMD ["npm", "start"]
 ```
+
+Explanation of each line:
+
+- **FROM**: Specifies the base image to use.
+- **WORKDIR**: Sets the working directory inside the container.
+- **COPY**: Copies files from the host machine to the container.
+- **RUN**: Executes commands inside the container during the build process.
+- **EXPOSE**: Exposes a port for communication with the outside world.
+- **CMD**: Specifies the command to run when the container starts.
+
+### Step 4: Backend Dockerfile
+Create a similar Dockerfile for the backend application (assuming it's built with Node.js).
+
+### Step 5: MySQL Docker Image
+Pull the official MySQL Docker image from the Docker Hub and configure it with environment variables.
+
+## Part 3: Docker Compose Configuration
+### Step 6: Docker Compose Setup
+Use Docker Compose to define and run multi-container Docker applications. Write a docker-compose.yml file to specify the services, networks, and volumes for your application.
+
+## Part 4: Building and Running the Application
+### Step 7: Building Docker Images
+Build Docker images for the frontend, backend, and MySQL using the docker build command.
+
+### Step 8: Running Docker Containers
+Run Docker containers using Docker Compose to start the application.
+
+## Part 5: Testing the Application
+### Step 9: Accessing the Application
+Access the application in a web browser to verify that everything is working correctly.
+
+### Conclusion
+In this tutorial, we've explored how to set up a multi-container application using Docker. By leveraging Docker's containerization technology, we can easily manage complex applications with multiple components. Docker Compose simplifies the process of orchestrating these containers, making it easier to develop, deploy, and scale applications. With these tools, you can build robust and scalable applications that are easy to maintain and deploy.
+
+### About the Author
+Ronit Shah (21BCP321) is a Developer with expertise in AI/ML. Connect with Ronit on [LinkedIn/Twitter/GitHub/etc.] for more articles and tutorials on software development.
